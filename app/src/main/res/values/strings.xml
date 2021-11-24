@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MiniCountryGuide</string>
+    <string name="locationButtonContent">Lokalizacja</string>
+    <string name="searchButtonContent">Szukaj</string>
+    <string name="settingsButtonContent">Ustawienia</string>
+    <string name="darkThemeButtonContent">Tryb ciemny</string>
 </resources>
