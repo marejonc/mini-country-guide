@@ -1,55 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:id="@+id/searchBarLayout"
-        android:layout_width="match_parent"
+    <SearchView
+        android:id="@+id/countryList_searchview"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@id/countryList_recycler"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/countryList"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="5dp">
+        android:layout_marginEnd="2.5dp"/>
 
-        <SearchView
-            android:id="@+id/countryListSearchBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginRight="2.5dp"/>
-
-        <Button
-            android:id="@+id/countryListSearchButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/searchButtonContent"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="2.5dp"/>
-
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/countryList"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/countryList_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchBarLayout"
+        app:layout_constraintBottom_toTopOf="@id/searchCountry_button"
+        app:layout_constraintTop_toBottomOf="@id/countryList_searchview"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/searchCountry_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pick_country_button_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/countryList_recycler"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

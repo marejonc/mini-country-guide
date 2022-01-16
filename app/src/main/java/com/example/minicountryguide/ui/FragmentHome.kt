@@ -6,14 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.minicountryguide.R
 
-class HomeFragment(): Fragment()
+class FragmentHome(): Fragment()
 {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,18 +23,15 @@ class HomeFragment(): Fragment()
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.homeSearchButton).setOnClickListener{
-            requireActivity().supportFragmentManager.beginTransaction().
-            addToBackStack(null).replace(R.id.fragmentLayout, CountryListFragment()).commit()
+            it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentCountryList)
         }
 
         view.findViewById<Button>(R.id.homeLocationButton).setOnClickListener{
-            requireActivity().supportFragmentManager.beginTransaction().
-            addToBackStack(null).replace(R.id.fragmentLayout, PickedCountryFragment()).commit()
+            it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentPickedCountry)
         }
 
         view.findViewById<Button>(R.id.homeSettingsButton).setOnClickListener{
-            requireActivity().supportFragmentManager.beginTransaction().
-            addToBackStack(null).replace(R.id.fragmentLayout, SettingsFragment()).commit()
+            it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentSettings)
         }
     }
 }

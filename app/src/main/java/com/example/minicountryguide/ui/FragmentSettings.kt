@@ -1,6 +1,5 @@
 package com.example.minicountryguide.ui
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.minicountryguide.R
 
-class CountryListFragment(): Fragment()
+class FragmentSettings(): Fragment()
 {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +18,6 @@ class CountryListFragment(): Fragment()
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_countrylist, container, false)
+        return inflater.inflate(R.layout.fragment_settings, container, false)
     }
 }
