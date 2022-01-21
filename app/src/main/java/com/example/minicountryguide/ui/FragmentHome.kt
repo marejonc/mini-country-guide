@@ -27,7 +27,7 @@ class FragmentHome(): Fragment()
         }
 
         view.findViewById<Button>(R.id.homeLocationButton).setOnClickListener{
-            it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentPickedCountry)
+            it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentPickedCountryFromLocation)
         }
 
         view.findViewById<Button>(R.id.homeSettingsButton).setOnClickListener{

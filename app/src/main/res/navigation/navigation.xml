@@ -25,8 +25,8 @@
             android:id="@+id/action_fragmentHome_to_fragmentCountryList"
             app:destination="@id/fragmentCountryList" />
         <action
-            android:id="@+id/action_fragmentHome_to_fragmentPickedCountry"
-            app:destination="@id/fragmentPickedCountry" />
+            android:id="@+id/action_fragmentHome_to_fragmentPickedCountryFromLocation"
+            app:destination="@id/fragmentPickedCountryFromLocation" />
     </fragment>
     <fragment
         android:id="@+id/fragmentPickedCountry"
@@ -42,6 +42,14 @@
         android:label="FragmentSettings" >
         <action
             android:id="@+id/action_fragmentSettings_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPickedCountryFromLocation"
+        android:name="com.example.minicountryguide.ui.FragmentPickedCountryFromLocation"
+        android:label="FragmentPickedCountryFromLocation" >
+        <action
+            android:id="@+id/action_fragmentPickedCountryFromLocation_to_fragmentHome"
             app:destination="@id/fragmentHome" />
     </fragment>
 </navigation>

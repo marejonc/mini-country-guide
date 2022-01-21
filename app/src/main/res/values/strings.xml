@@ -2,8 +2,9 @@
     <string name="app_name">MiniCountryGuide</string>
     <string name="location_button_content">Lokalizacja</string>
     <string name="search_button_content">Szukaj</string>
-    <string name="pick_country_button_content">Szukaj</string>
+    <string name="pick_country_button_content">Wybierz</string>
     <string name="settings_button_content">Ustawienia</string>
     <string name="change_theme_textView_content">Zmień tryb wyświetlania</string>
     <string name="change_theme_button_content">Zmień</string>
+    <string name="country_name">Nazwa Państwa</string>
 </resources>

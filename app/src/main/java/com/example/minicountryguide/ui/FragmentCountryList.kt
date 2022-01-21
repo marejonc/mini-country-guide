@@ -5,26 +5,53 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.SearchView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.minicountryguide.R
+import com.example.minicountryguide.model.CountryList
+import com.example.minicountryguide.viewmodel.adapters.CountryListAdapter
 
-class FragmentCountryList(): Fragment()
-{
+class FragmentCountryList(): Fragment() {
+
+    private lateinit var countryListAdapter: CountryListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        countryListAdapter = CountryListAdapter(CountryList.getCountries())
         return inflater.inflate(R.layout.fragment_countrylist, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        view.findViewById<SearchView>(R.id.countryList_searchView).setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(filterQuery: String?): Boolean {
+                countryListAdapter.filter.filter(filterQuery)
+                return false
+            }
+        })
+
+        view.findViewById<RecyclerView>(R.id.countryList_recycler).adapter = countryListAdapter
+
         view.findViewById<Button>(R.id.searchCountry_button).setOnClickListener {
-            it.findNavController().navigate(R.id.action_fragmentCountryList_to_fragmentPickedCountry)
+            if(countryListAdapter.getSelectedPosition() != -1)
+                it.findNavController().navigate(R.id.action_fragmentCountryList_to_fragmentPickedCountry, bundleOf(
+                    "PICKED_COUNTRY_CODE" to countryListAdapter.getSelectedCountryCode(),
+                    "PICKED_COUNTRY_NAME" to countryListAdapter.getSelectedCountryName()
+                ))
         }
     }
 }
