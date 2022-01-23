@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/country_name"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:layout_margin="5dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/country_flag_imageView"
