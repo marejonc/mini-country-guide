@@ -5,11 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.minicountryguide.R
+import com.example.minicountryguide.model.utils.Utils
 
-class FragmentHome(): Fragment()
+private const val NO_NETWORK_ALERT = "Brak połączenia z internetem"
+
+class FragmentHome: Fragment()
 {
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,12 +27,12 @@ class FragmentHome(): Fragment()
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.homeSearchButton).setOnClickListener{
-            it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentCountryList)
-        }
+            if(Utils.isOnline(requireContext())) it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentCountryList)
+            else Toast.makeText(context, NO_NETWORK_ALERT, Toast.LENGTH_SHORT).show() }
 
         view.findViewById<Button>(R.id.homeLocationButton).setOnClickListener{
-            it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentPickedCountryFromLocation)
-        }
+            if(Utils.isOnline(requireContext())) it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentPickedCountryFromLocation)
+            else Toast.makeText(context, NO_NETWORK_ALERT, Toast.LENGTH_SHORT).show() }
 
         view.findViewById<Button>(R.id.homeSettingsButton).setOnClickListener{
             it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentSettings)

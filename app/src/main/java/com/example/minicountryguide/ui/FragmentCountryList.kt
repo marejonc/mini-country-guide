@@ -9,14 +9,12 @@ import android.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.minicountryguide.R
-import com.example.minicountryguide.model.CountryList
+import com.example.minicountryguide.model.utils.CountryList
 import com.example.minicountryguide.viewmodel.adapters.CountryListAdapter
 
-class FragmentCountryList(): Fragment() {
+class FragmentCountryList: Fragment() {
 
     private lateinit var countryListAdapter: CountryListAdapter
 
@@ -35,6 +33,7 @@ class FragmentCountryList(): Fragment() {
         view.findViewById<SearchView>(R.id.countryList_searchView).setOnQueryTextListener(object: SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
+                countryListAdapter.filter.filter(query)
                 return false
             }
 
@@ -44,14 +43,19 @@ class FragmentCountryList(): Fragment() {
             }
         })
 
-        view.findViewById<RecyclerView>(R.id.countryList_recycler).adapter = countryListAdapter
+        view.findViewById<RecyclerView>(R.id.countryList_recycler).let {
+            it.adapter = countryListAdapter
+            it.itemAnimator = null
+        }
 
         view.findViewById<Button>(R.id.searchCountry_button).setOnClickListener {
-            if(countryListAdapter.getSelectedPosition() != -1)
+            if(countryListAdapter.getSelectedPosition() != -1) {
                 it.findNavController().navigate(R.id.action_fragmentCountryList_to_fragmentPickedCountry, bundleOf(
                     "PICKED_COUNTRY_CODE" to countryListAdapter.getSelectedCountryCode(),
                     "PICKED_COUNTRY_NAME" to countryListAdapter.getSelectedCountryName()
                 ))
+                view.findViewById<SearchView>(R.id.countryList_searchView).setQuery("", false)
+            }
         }
     }
 }
