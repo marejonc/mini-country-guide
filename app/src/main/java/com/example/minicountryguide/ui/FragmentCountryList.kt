@@ -23,7 +23,7 @@ class FragmentCountryList: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        countryListAdapter = CountryListAdapter(CountryList.getCountries())
+        countryListAdapter = CountryListAdapter(CountryList.getCountries(), requireContext())
         return inflater.inflate(R.layout.fragment_countrylist, container, false)
     }
 
