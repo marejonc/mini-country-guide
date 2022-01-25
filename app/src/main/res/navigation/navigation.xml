@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragmentHome">
+    <fragment
+        android:id="@+id/fragmentCountryList"
+        android:name="com.example.minicountryguide.ui.FragmentCountryList"
+        android:label="FragmentCountryList" >
+        <action
+            android:id="@+id/action_fragmentCountryList_to_fragmentPickedCountry"
+            app:destination="@id/fragmentPickedCountry" />
+        <action
+            android:id="@+id/action_fragmentCountryList_to_fragmentWebFunctions"
+            app:destination="@id/fragmentWebFunctions" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPickedCountry"
+        android:name="com.example.minicountryguide.ui.FragmentPickedCountry"
+        android:label="FragmentPickedCountry" >
+        <action
+            android:id="@+id/action_fragmentPickedCountry_to_fragmentCountryList"
+            app:destination="@id/fragmentCountryList" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPickedCountryFromLocation"
+        android:name="com.example.minicountryguide.ui.FragmentPickedCountryFromLocation"
+        android:label="FragmentPickedCountryFromLocation" >
+        <action
+            android:id="@+id/action_fragmentPickedCountryFromLocation_to_fragmentWebFunctions"
+            app:destination="@id/fragmentWebFunctions" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentLocalCountryList"
+        android:name="com.example.minicountryguide.ui.FragmentLocalCountryList"
+        android:label="FragmentLocalCountryList" >
+        <action
+            android:id="@+id/action_fragmentLocalCountryList_to_fragmentPickedLocalCountry"
+            app:destination="@id/fragmentPickedLocalCountry" />
+        <action
+            android:id="@+id/action_fragmentLocalCountryList_to_fragmentLocalFunctions"
+            app:destination="@id/fragmentLocalFunctions" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPickedLocalCountry"
+        android:name="com.example.minicountryguide.ui.FragmentPickedLocalCountry"
+        android:label="FragmentPickedLocalCountry" >
+        <action
+            android:id="@+id/action_fragmentPickedLocalCountry_to_fragmentLocalCountryList"
+            app:destination="@id/fragmentLocalCountryList" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.example.minicountryguide.ui.FragmentHome"
+        android:label="FragmentHome" >
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentWebFunctions"
+            app:destination="@id/fragmentWebFunctions" />
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentLocalFunctions"
+            app:destination="@id/fragmentLocalFunctions" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentLocalFunctions"
+        android:name="com.example.minicountryguide.ui.FragmentLocalFunctions"
+        android:label="FragmentLocalFunctions" >
+        <action
+            android:id="@+id/action_fragmentLocalFunctions_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+        <action
+            android:id="@+id/action_fragmentLocalFunctions_to_fragmentLocalCountryList"
+            app:destination="@id/fragmentLocalCountryList" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentWebFunctions"
+        android:name="com.example.minicountryguide.ui.FragmentWebFunctions"
+        android:label="FragmentWebFunctions" >
+        <action
+            android:id="@+id/action_fragmentWebFunctions_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+        <action
+            android:id="@+id/action_fragmentWebFunctions_to_fragmentPickedCountryFromLocation"
+            app:destination="@id/fragmentPickedCountryFromLocation" />
+        <action
+            android:id="@+id/action_fragmentWebFunctions_to_fragmentCountryList"
+            app:destination="@id/fragmentCountryList" />
+    </fragment>
+</navigation>

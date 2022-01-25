@@ -1,7 +1,36 @@
 <resources>
     <string name="app_name">MiniCountryGuide</string>
-    <string name="locationButtonContent">Lokalizacja</string>
-    <string name="searchButtonContent">Szukaj</string>
-    <string name="settingsButtonContent">Ustawienia</string>
-    <string name="darkThemeButtonContent">Tryb ciemny</string>
+    <string name="polish_app_name">MINI PRZEWODNIK</string>
+    <string name="location_button_content">Lokalizacja</string>
+    <string name="list_button_content">Lista</string>
+    <string name="pick_country_button_content">Wybierz</string>
+    <string name="localData_button_content">Lokalne</string>
+    <string name="webData_button_content">Sieć</string>
+    <string name="reset_button_content">Reset Danych</string>
+    <string name="saveLocally_button_content">Zapamiętaj lokalnie</string>
+    <string name="deleteLocally_button_content">Usuń lokalnie</string>
+    <string name="change_theme_textView_content">Zmień tryb wyświetlania</string>
+    <string name="change_theme_button_content">Zmień</string>
+    <string name="country_name">Nazwa Państwa</string>
+    <string name="flag_caption">Flaga kraju</string>
+    <string name="local_list_caption">LISTA LOKALNA</string>
+    <string name="author1_caption">Jakub Figler</string>
+    <string name="author2_caption">Marek Jonczyk</string>
+    <string name="logo_caption">Logo</string>
+
+    <string name="official_polish_name_caption">Nazwa oficjalna</string>
+    <string name="common_english_name_caption">Nazwa potoczna (angielski)</string>
+    <string name="official_english_name_caption">Nazwa oficjalna (angielski)</string>
+    <string name="capital_caption">Stolica</string>
+    <string name="continent_caption">Kontynent</string>
+    <string name="alpha2_code_caption">Kod alfa-2</string>
+    <string name="alpha3_code_caption">Kod alfa-3</string>
+    <string name="languages_caption">Języki</string>
+    <string name="neighbours_caption">Sąsiedzi</string>
+    <string name="land_area_caption">Powierzchnia (km kwadratowe)</string>
+    <string name="population_caption">Populacja</string>
+    <string name="currency_caption">Waluta</string>
+    <string name="time_zones_caption">Strefy czasowe</string>
+    <string name="car_code_caption">Kod samochodowy</string>
+    <string name="car_side_caption">Strona jazdy</string>
 </resources>
