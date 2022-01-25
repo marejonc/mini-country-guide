@@ -5,70 +5,103 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Space
-        android:id="@+id/topSpace"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/buttonsLayout"
-        app:layout_constraintTop_toTopOf="parent"
+    <TextView
+        android:id="@+id/app_name_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/polish_app_name"
+        android:textSize="35sp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/black"
+        android:shadowColor="@color/white"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/logo_imageView"/>
+
+    <ImageView
+        android:id="@+id/logo_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/map"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_name_caption"
+        android:contentDescription="@string/logo_caption"
+        android:adjustViewBounds="true"
+        android:scaleY="0.4"
+        android:scaleX="0.4" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/buttonsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/bottomSpace"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginBottom="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topSpace">
+        app:layout_constraintBottom_toTopOf="@id/author1_textView">
 
         <Button
-            android:id="@+id/homeSearchButton"
+            android:id="@+id/homeWeb_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/search_button_content"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@id/homeLocationButton"
-            app:layout_constraintLeft_toLeftOf="@id/homeLocationButton"
-            app:layout_constraintRight_toRightOf="@id/homeLocationButton"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/webData_button_content"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toTopOf="@id/homeLocal_button"
+            app:layout_constraintLeft_toLeftOf="@id/homeLocal_button"
+            app:layout_constraintRight_toRightOf="@id/homeLocal_button"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="15dp"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
-            android:id="@+id/homeLocationButton"
+            android:id="@+id/homeLocal_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/location_button_content"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@id/homeSettingsButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeSearchButton" />
-
-        <Button
-            android:id="@+id/homeSettingsButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
             android:text="@string/localData_button_content"
+            android:textSize="35sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="@id/homeLocationButton"
-            app:layout_constraintRight_toRightOf="@id/homeLocationButton"
-            app:layout_constraintTop_toBottomOf="@id/homeLocationButton" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeWeb_button"
+            style="?android:attr/buttonBarButtonStyle"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Space
-        android:id="@+id/bottomSpace"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
+    <TextView
+        android:id="@+id/author1_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/author2_textView"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonsLayout" />
+        android:text="@string/author1_caption"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:shadowColor="@color/white"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"/>
+
+    <TextView
+        android:id="@+id/author2_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/author2_caption"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:shadowColor="@color/white"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

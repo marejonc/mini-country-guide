@@ -10,11 +10,15 @@
         <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/fragment_countrylist.xml" value="0.23731884057971014" />
         <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/fragment_countrylist_landscape.xml" value="0.23278985507246377" />
+        <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/fragment_countrylist_local.xml" value="0.2418478260869565" />
         <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/fragment_home.xml" value="0.23731884057971014" />
+        <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/fragment_local_functions.xml" value="0.2418478260869565" />
         <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/fragment_pickedcountry.xml" value="0.23731884057971014" />
         <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/fragment_pickedcountry_fromlocation.xml" value="0.2504528985507246" />
         <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/fragment_pickedcountry_landscape.xml" value="0.23278985507246377" />
+        <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/fragment_pickedcountry_local.xml" value="0.2418478260869565" />
         <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/fragment_settings.xml" value="0.2" />
+        <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/fragment_web_functions.xml" value="0.2418478260869565" />
         <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/single_country_data_field.xml" value="0.2504528985507246" />
         <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/layout/single_country_in_list.xml" value="0.19610507246376813" />
         <entry key="..\:/MOJE/STUDIA/PROGRAMOWANIE/Kotlin/ProjektZespolowy/MiniCountryGuide/app/src/main/res/menu/drawer_menu.xml" value="0.25416666666666665" />
