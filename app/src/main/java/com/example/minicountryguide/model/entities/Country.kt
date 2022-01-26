@@ -9,7 +9,7 @@ data class Country(
     val cca2: String,
     val cca3: String,
     val borders: List<String>,
-    val area: Int,
+    val area: Double,
     val population: Int,
     val timezones: List<String>,
     val car: Car

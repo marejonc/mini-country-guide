@@ -26,7 +26,7 @@ data class CountryLocal(
     @ColumnInfo(name = "neighbours")
     val neighbours: String,
     @ColumnInfo(name = "area")
-    val area: Int,
+    val area: Double,
     @ColumnInfo(name = "population")
     val population: Int,
     @ColumnInfo(name = "timezones")
