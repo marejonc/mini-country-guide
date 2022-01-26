@@ -51,8 +51,7 @@ class FragmentPickedCountryFromLocation: Fragment()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)
-            != PackageManager.PERMISSION_GRANTED) { return }
+        if (!Utilities.checkLocationPermission(requireContext())) { return }
         else {
             fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
                 val addresses: List<Address> = geocoder.getFromLocation(location!!.latitude, location.longitude, 1)

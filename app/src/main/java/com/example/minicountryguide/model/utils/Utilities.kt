@@ -1,9 +1,12 @@
 package com.example.minicountryguide.model.utils
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.net.ConnectivityManager
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.LiveData
+import java.util.jar.Manifest
 
 object Utilities {
     fun printListedData(data: List<String>): String {
@@ -40,5 +43,10 @@ object Utilities {
     fun locationEnabled(context: Context?): Boolean {
         val locationManager = context?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+    }
+
+    fun checkLocationPermission(context: Context?): Boolean {
+        return ActivityCompat.checkSelfPermission(context!!, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED
     }
 }
