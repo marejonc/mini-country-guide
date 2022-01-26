@@ -8,5 +8,5 @@ import retrofit2.http.Path
 interface CountryAPI {
 
     @GET("{code}?fields=translations,name,flags,continents,capital,cca2,cca3,borders,area,population,timezones,car")
-    fun getCountryFlag(@Path("code") code: String): Call<Country>
+    fun getCountryData(@Path("code") code: String): Call<Country>
 }

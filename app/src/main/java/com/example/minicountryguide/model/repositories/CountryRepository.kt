@@ -7,6 +7,6 @@ import retrofit2.awaitResponse
 class CountryRepository {
 
     suspend fun getCountryData(code: String): Country? {
-        return RetrofitInstance.api.getCountryFlag(code).awaitResponse().body()
+        return RetrofitInstance.api.getCountryData(code).awaitResponse().body()
     }
 }
