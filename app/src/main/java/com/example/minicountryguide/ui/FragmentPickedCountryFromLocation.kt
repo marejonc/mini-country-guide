@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -24,12 +25,13 @@ import com.example.minicountryguide.viewmodel.adapters.CountryDataListAdapter
 import com.example.minicountryguide.viewmodel.vms.CountryViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.tasks.Task
 import com.makeramen.roundedimageview.RoundedTransformationBuilder
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
 
-class FragmentPickedCountryFromLocation(): Fragment()
+class FragmentPickedCountryFromLocation: Fragment()
 {
     private lateinit var viewModel: CountryViewModel
     private lateinit var fusedLocationClient: FusedLocationProviderClient
