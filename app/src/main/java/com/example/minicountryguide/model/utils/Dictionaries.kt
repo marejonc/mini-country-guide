@@ -10,15 +10,19 @@ object Dictionaries {
             "North America" -> "Ameryka Północna"
             "Europe" -> "Europa"
             "Oceania" -> "Australia i Oceania"
+            "Antarctica" -> "Antarktyda"
             else -> {
-                "Antarktyda"
+                ""
             }
         }
         return polishName
     }
 
     fun findPolishSide(englishSide: String): String {
-        return if(englishSide == "right") "Prawa"
-        else "Lewa"
+        return when (englishSide) {
+            "right" -> "Prawa"
+            "left" -> "Lewa"
+            else -> ""
+        }
     }
 }

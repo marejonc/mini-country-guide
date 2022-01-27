@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -36,5 +37,11 @@ class FragmentHome: Fragment()
         view.findViewById<Button>(R.id.homeLocal_button).setOnClickListener{
             it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentLocalFunctions)
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                requireActivity().finish()
+            }
+        })
     }
 }

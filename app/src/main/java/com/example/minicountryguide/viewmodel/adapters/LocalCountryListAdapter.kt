@@ -11,6 +11,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.minicountryguide.R
@@ -50,15 +51,15 @@ class LocalCountryListAdapter(private val countryList: LiveData<List<String>>, c
 
         if(currentContext.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == UI_MODE_NIGHT_YES) {
             if(position == selectedPosition)
-                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(Color.parseColor("#000000"))
+                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(ContextCompat.getColor(currentContext, R.color.black))
             else
-                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(Color.parseColor("#121212"))
+                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(ContextCompat.getColor(currentContext, R.color.dark_gray))
         }
         else {
             if(position == selectedPosition)
-                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(Color.parseColor("#E6E6E6"))
+                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(ContextCompat.getColor(currentContext, R.color.light_gray))
             else
-                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(Color.parseColor("#FFFFFF"))
+                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(ContextCompat.getColor(currentContext, R.color.white))
         }
 
         holder.textViewCountryCode.text = countryList.value?.get(position)
@@ -69,5 +70,4 @@ class LocalCountryListAdapter(private val countryList: LiveData<List<String>>, c
 
     fun getSelectedPosition() = selectedPosition
     fun getSelectedCountryCode() = countryList.value?.get(selectedPosition)
-    fun getSelectedCountryName() = CountryList.getCountryByCode(countryList.value?.get(selectedPosition)!!)
 }

@@ -1,6 +1,7 @@
 package com.example.minicountryguide.viewmodel.vms
 
 import android.app.Application
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -23,9 +24,9 @@ class CountryViewModel(application: Application): AndroidViewModel(application) 
     val countryData: LiveData<Country>
         get() { return _countryData }
 
-    fun getCountryData(code: String) {
+    fun getCountryData(code: String, context: Context) {
         viewModelScope.launch {
-            _countryData.value = repository.getCountryData(code)
+            _countryData.value = repository.getCountryData(code, context)
         }
     }
 

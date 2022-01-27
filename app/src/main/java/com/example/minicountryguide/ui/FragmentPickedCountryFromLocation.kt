@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +26,8 @@ import com.makeramen.roundedimageview.RoundedTransformationBuilder
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
+
+private const val EMPTY_OBJECT_ALERT = "Błąd dodania wartości do bazy"
 
 class FragmentPickedCountryFromLocation: Fragment()
 {
@@ -51,7 +54,7 @@ class FragmentPickedCountryFromLocation: Fragment()
             fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
                 val addresses: List<Address> = geocoder.getFromLocation(location!!.latitude, location.longitude, 1)
                 val country = addresses[0].countryCode
-                viewModel.getCountryData(country)
+                viewModel.getCountryData(country, requireContext())
                 viewModel.countryData.observe(viewLifecycleOwner) {
                     val transformation: Transformation =
                         RoundedTransformationBuilder().cornerRadiusDp(10f).build()
@@ -120,7 +123,12 @@ class FragmentPickedCountryFromLocation: Fragment()
                             commonEnglishName, officialEnglishName, continent, capital,
                             neighbours, area, population, timeZones, carSide, carSign
                         )
-                        viewModel.addLocalCountry(localCountry)
+                        if(localCountry.cca3.isNotEmpty()) {
+                            viewModel.addLocalCountry(localCountry)
+                        }
+                        else {
+                            Toast.makeText(context, EMPTY_OBJECT_ALERT, Toast.LENGTH_SHORT).show()
+                        }
                     }
 
                     view.findViewById<TextView>(R.id.country_name_textView).text =

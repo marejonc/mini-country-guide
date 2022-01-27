@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +22,8 @@ import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
 
+private const val EMPTY_OBJECT_ALERT = "Błąd dodania wartości do bazy"
+
 class FragmentPickedCountry: Fragment()
 {
     private lateinit var viewModel: CountryViewModel
@@ -31,7 +34,7 @@ class FragmentPickedCountry: Fragment()
         savedInstanceState: Bundle?
     ): View? {
         viewModel = ViewModelProvider(requireActivity())[CountryViewModel::class.java]
-        viewModel.getCountryData(arguments?.getString("PICKED_COUNTRY_CODE")!!)
+        viewModel.getCountryData(arguments?.getString("PICKED_COUNTRY_CODE")!!, requireContext())
         return inflater.inflate(R.layout.fragment_pickedcountry, container, false)
     }
 
@@ -91,7 +94,12 @@ class FragmentPickedCountry: Fragment()
                     commonEnglishName, officialEnglishName, continent, capital,
                     neighbours, area, population, timeZones, carSide, carSign
                 )
-                viewModel.addLocalCountry(localCountry)
+                if(localCountry.cca3.isNotEmpty()) {
+                    viewModel.addLocalCountry(localCountry)
+                }
+                else {
+                    Toast.makeText(context, EMPTY_OBJECT_ALERT, Toast.LENGTH_SHORT).show()
+                }
             }
 
             view.findViewById<TextView>(R.id.country_name_textView).text = commonName.uppercase()
