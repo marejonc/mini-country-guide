@@ -13,7 +13,7 @@ import androidx.navigation.findNavController
 import com.example.minicountryguide.R
 import com.example.minicountryguide.viewmodel.vms.LocalCountryViewModel
 
-private const val DELETE_DATA_ALERT = "Zresetowano lokalną bazę danych"
+private const val DELETE_DATA_ALERT = "Local database reset"
 
 class FragmentLocalFunctions: Fragment() {
 

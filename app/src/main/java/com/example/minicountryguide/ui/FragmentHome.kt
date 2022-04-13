@@ -14,7 +14,7 @@ import androidx.navigation.findNavController
 import com.example.minicountryguide.R
 import com.example.minicountryguide.model.utils.Utilities
 
-private const val NO_NETWORK_ALERT = "Błąd sieci"
+private const val NO_NETWORK_ALERT = "Network error"
 
 class FragmentHome: Fragment()
 {

@@ -18,7 +18,7 @@ interface CountryDAO {
     @Query("select * from country where alpha3 = :alphaCode")
     fun getCountryData(alphaCode: String): LiveData<CountryLocal>
 
-    @Query("select alpha3 from country order by polish_common_name")
+    @Query("select alpha3 from country order by english_common_name")
     fun getAllCodesInDatabase(): LiveData<List<String>>
 
     @Query("delete from country")

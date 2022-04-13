@@ -16,8 +16,8 @@ import com.example.minicountryguide.model.utils.CountryList
 import com.example.minicountryguide.model.utils.Utilities
 import com.example.minicountryguide.viewmodel.adapters.CountryListAdapter
 
-private const val NO_NETWORK_ALERT = "Błąd sieci"
-private const val PICK_ELEMENT_OF_LIST_ALERT = "Wybierz element z listy"
+private const val NO_NETWORK_ALERT = "Network error"
+private const val PICK_ELEMENT_OF_LIST_ALERT = "Pick an element from the list"
 
 class FragmentCountryList: Fragment() {
 

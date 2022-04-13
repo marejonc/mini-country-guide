@@ -15,7 +15,7 @@ import com.example.minicountryguide.R
 import com.example.minicountryguide.viewmodel.adapters.CountryDataListAdapter
 import com.example.minicountryguide.viewmodel.vms.LocalCountryViewModel
 
-private const val DELETED_LOCALLY_ALERT = "Usunięto z lokalnej bazy danych"
+private const val DELETED_LOCALLY_ALERT = "Deleted from local database"
 
 class FragmentPickedLocalCountry: Fragment() {
 
@@ -35,7 +35,6 @@ class FragmentPickedLocalCountry: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.countryData.observe(viewLifecycleOwner) {
-            val commonName = viewModel.countryData.value?.polishCommonName!!
             val officialName = viewModel.countryData.value?.polishOfficialName!!
             val commonEnglishName = viewModel.countryData.value?.englishCommonName!!
             val officialEnglishName = viewModel.countryData.value?.englishOfficialName!!
@@ -49,6 +48,7 @@ class FragmentPickedLocalCountry: Fragment() {
             val timeZones = viewModel.countryData.value?.timezones!!
             val carSign = viewModel.countryData.value?.carCode!!
             val carSide = viewModel.countryData.value?.carSide!!
+            val whenAdded = viewModel.countryData.value?.whenAdded!!
 
             val dataList = arrayListOf(
                 listOf(resources.getString(R.string.official_polish_name_caption), officialName),
@@ -64,12 +64,13 @@ class FragmentPickedLocalCountry: Fragment() {
                 listOf(resources.getString(R.string.continent_caption), continent),
                 listOf(resources.getString(R.string.alpha2_code_caption), alpha2),
                 listOf(resources.getString(R.string.alpha3_code_caption), alpha3),
-                listOf(resources.getString(R.string.neighbours_caption), neighbours),
+                listOf(resources.getString(R.string.neighbors_caption), neighbours),
                 listOf(resources.getString(R.string.land_area_caption), area.toString()),
                 listOf(resources.getString(R.string.population_caption), population.toString()),
                 listOf(resources.getString(R.string.time_zones_caption), timeZones),
                 listOf(resources.getString(R.string.car_code_caption), carSign),
-                listOf(resources.getString(R.string.car_side_caption), carSide)
+                listOf(resources.getString(R.string.car_side_caption), carSide),
+                listOf(resources.getString(R.string.addition_date_caption), whenAdded)
             )
 
             val countryDataListAdapter = CountryDataListAdapter(dataList)
@@ -80,7 +81,7 @@ class FragmentPickedLocalCountry: Fragment() {
             }
 
             view.findViewById<TextView>(R.id.localCountry_name_textView).text =
-                commonName.uppercase()
+                commonEnglishName.uppercase()
 
             view.findViewById<Button>(R.id.delete_locally_button).setOnClickListener {
                 it.findNavController()
@@ -89,6 +90,5 @@ class FragmentPickedLocalCountry: Fragment() {
                 Toast.makeText(context, DELETED_LOCALLY_ALERT, Toast.LENGTH_SHORT).show()
             }
         }
-
     }
 }

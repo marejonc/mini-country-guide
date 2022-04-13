@@ -11,8 +11,6 @@ data class CountryLocal(
     val cca3: String,
     @ColumnInfo(name = "alpha2")
     val cca2: String,
-    @ColumnInfo(name = "polish_common_name")
-    val polishCommonName: String,
     @ColumnInfo(name = "polish_official_name")
     val polishOfficialName: String,
     @ColumnInfo(name = "english_common_name")
@@ -34,5 +32,7 @@ data class CountryLocal(
     @ColumnInfo(name = "car_side")
     val carSide: String,
     @ColumnInfo(name = "car_code")
-    val carCode: String
+    val carCode: String,
+    @ColumnInfo(name = "when_added")
+    val whenAdded: String
 )
