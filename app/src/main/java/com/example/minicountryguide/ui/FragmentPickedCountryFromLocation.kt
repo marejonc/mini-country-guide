@@ -26,8 +26,10 @@ import com.makeramen.roundedimageview.RoundedTransformationBuilder
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
-private const val EMPTY_OBJECT_ALERT = "Błąd dodania wartości do bazy"
+private const val EMPTY_OBJECT_ALERT = "Database entry error"
 
 class FragmentPickedCountryFromLocation: Fragment()
 {
@@ -63,13 +65,11 @@ class FragmentPickedCountryFromLocation: Fragment()
                         .memoryPolicy(MemoryPolicy.NO_CACHE)
                         .into(view.findViewById<ImageView>(R.id.country_flag_imageView))
 
-                    val commonName = viewModel.countryData.value?.translations?.pol?.common!!
                     val officialName = viewModel.countryData.value?.translations?.pol?.official!!
                     val commonEnglishName = viewModel.countryData.value?.name?.common!!
                     val officialEnglishName = viewModel.countryData.value?.name?.official!!
                     val capital = Utilities.printListedData(viewModel.countryData.value?.capital!!)
-                    val continent =
-                        Dictionaries.findPolishContinentName(viewModel.countryData.value!!.continents[0])
+                    val continent = viewModel.countryData.value!!.continents[0]
                     val alpha3 = viewModel.countryData.value?.cca3!!
                     val alpha2 = viewModel.countryData.value?.cca2!!
                     val neighbours =
@@ -99,7 +99,7 @@ class FragmentPickedCountryFromLocation: Fragment()
                         listOf(resources.getString(R.string.continent_caption), continent),
                         listOf(resources.getString(R.string.alpha2_code_caption), alpha2),
                         listOf(resources.getString(R.string.alpha3_code_caption), alpha3),
-                        listOf(resources.getString(R.string.neighbours_caption), neighbours),
+                        listOf(resources.getString(R.string.neighbors_caption), neighbours),
                         listOf(resources.getString(R.string.land_area_caption), area.toString()),
                         listOf(
                             resources.getString(R.string.population_caption),
@@ -119,9 +119,10 @@ class FragmentPickedCountryFromLocation: Fragment()
 
                     view.findViewById<Button>(R.id.save_locally_button).setOnClickListener {
                         val localCountry = CountryLocal(
-                            alpha3, alpha2, commonName, officialName,
+                            alpha3, alpha2, officialName,
                             commonEnglishName, officialEnglishName, continent, capital,
-                            neighbours, area, population, timeZones, carSide, carSign
+                            neighbours, area, population, timeZones, carSide, carSign,
+                            LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")).toString()
                         )
                         if(localCountry.cca3.isNotEmpty()) {
                             viewModel.addLocalCountry(localCountry)
@@ -132,7 +133,7 @@ class FragmentPickedCountryFromLocation: Fragment()
                     }
 
                     view.findViewById<TextView>(R.id.country_name_textView).text =
-                        commonName.uppercase()
+                        commonEnglishName.uppercase()
                 }
 
             }

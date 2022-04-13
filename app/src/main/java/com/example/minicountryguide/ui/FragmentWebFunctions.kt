@@ -15,8 +15,8 @@ import androidx.navigation.findNavController
 import com.example.minicountryguide.R
 import com.example.minicountryguide.model.utils.Utilities
 
-private const val NO_LOCATION_SERVICE_ALERT = "Błąd sieci lub lokalizacji"
-private const val LOCATION_PERMISSION_DENIED_ALERT = "Nadaj prawo do odbierania lokalizacji"
+private const val NO_LOCATION_SERVICE_ALERT = "Network or location error"
+private const val LOCATION_PERMISSION_DENIED_ALERT = "Give access to location services"
 
 class FragmentWebFunctions: Fragment() {
 

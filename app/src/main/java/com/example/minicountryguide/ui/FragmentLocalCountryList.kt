@@ -18,7 +18,7 @@ import com.example.minicountryguide.viewmodel.adapters.LocalCountryListAdapter
 import com.example.minicountryguide.viewmodel.vms.LocalCountryListViewModel
 import com.example.minicountryguide.viewmodel.vms.LocalCountryViewModel
 
-private const val PICK_ELEMENT_OF_LIST_ALERT = "Wybierz element z listy"
+private const val PICK_ELEMENT_OF_LIST_ALERT = "Pick an element from the list"
 
 class FragmentLocalCountryList: Fragment() {
 

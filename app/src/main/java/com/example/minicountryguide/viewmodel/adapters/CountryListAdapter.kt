@@ -50,13 +50,13 @@ class CountryListAdapter(private val countryList: ArrayList<List<String>>, conte
 
         if(currentContext.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == UI_MODE_NIGHT_YES) {
             if(position == selectedPosition)
-                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(ContextCompat.getColor(currentContext, R.color.black))
+                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(ContextCompat.getColor(currentContext, R.color.highlight_color))
             else
                 holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(ContextCompat.getColor(currentContext, R.color.dark_gray))
         }
         else {
             if(position == selectedPosition)
-                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(ContextCompat.getColor(currentContext, R.color.light_gray))
+                holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(ContextCompat.getColor(currentContext, R.color.highlight_color))
             else
                 holder.itemView.findViewById<LinearLayout>(R.id.single_country).setBackgroundColor(ContextCompat.getColor(currentContext, R.color.white))
         }
